@@ -1,3 +1,5 @@
+# pyinstaller --onefile --hidden-import pycountry --exclude-module matplotlib FacebookAutomaticPost.py
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -25,11 +27,11 @@ path = os.path.abspath (os.path.dirname (sys.argv[0]))
 fn = path + "/" + FN
 wb = xw.Book (fn)
 ws = wb.sheets["Overview"]
-ws2 = wb.sheets["Text"]
+ws2 = wb.sheets["Texte"]
 listGroups = ws.range ("B5:B100").value
 for idx, cont in enumerate (listGroups):
   if cont == None:
-    maxRow = int (idx)
+    maxRow = int (idx) + 4
     break
 idxRow = 2
 
@@ -65,7 +67,7 @@ for idx, stock in enumerate (listGroups):
     linkcode = ws["B" + str (idxRow)].value
     textCell = ws["D" + str (idxRow)].value
     dateCell = ws["E" + str (idxRow)].value
-    # print("Debug: ", linkcode,textCell,dateCell)
+    print("Debug: ", linkcode,textCell,dateCell)
 
     if textCell not in [None,""] and dateCell in [None,""]:
         text = ws2[textCell].value
@@ -90,14 +92,14 @@ for idx, stock in enumerate (listGroups):
             print(f"Write text to message box...")
             time.sleep (3)
             driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div/div[1]/form/div/div[1]/div/div/div[1]/div[3]/div[2]/div/div/div[1]').click()
-            idxRow += 1
             print(f"Send message...")
             time.sleep (10)
-            ws["E" + str (idxRow-1)].value = dt1
+            ws["E" + str (idxRow)].value = dt1
             print(f"Message send on Facebook for row {idxRow} site {linkcode} for cell {textCell}")
+            idxRow += 1
         except Exception as e:
             print(f"Error while working on row {idxRow} for site {linkcode} - wrote error to column E...")
             print(f"ErrorCode: {e}")
-            ws["E" + str (idxRow - 1)].value = "Error"
+            ws["E" + str (idxRow)].value = "Error"
             idxRow += 1
 driver.quit()
