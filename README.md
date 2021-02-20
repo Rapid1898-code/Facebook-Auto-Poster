@@ -35,5 +35,5 @@ first post) then there will be written "error" in the corresponding cell in colu
 Finally in case of problems or questions have a look at my general Online-FAQ for my tools:  
 https://www.rapidtech1898.com/htmlFinanztools/en/faqFinanceToolsEN.html
 
-If this doesn´t help pls feel free to get in contanct with me!
+If this doesn´t help pls feel free to get in contact with me!
 
