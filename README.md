@@ -6,7 +6,7 @@ Get the program and excel-sheet from
 <br>Have a look at my general Online FAQ in
 <a href="https://www.rapidtech1898.com/htmlFinanztools/en/faqFinanceToolsEN.html">English</a> or
 <a href="https://www.rapidtech1898.com/htmlFinanztools/faqFinanceTools.html">German</a>
-for my tools
+for my toolss
 
 Not interested in all that programming stuff?  
 No problem - get the ready-to-use 
